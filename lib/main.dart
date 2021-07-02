@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tele_covid_solis/Messeges/contactPage.dart';
+import 'package:tele_covid_solis/doctor/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: 'TeleCovid',
+    home: ContactPage(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
