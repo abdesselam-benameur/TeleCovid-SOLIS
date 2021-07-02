@@ -43,7 +43,7 @@ class CovidBarChart extends StatelessWidget {
                   bottomTitles: SideTitles(
                     margin: 10.0,
                     showTitles: true,
-                    textStyle: Styles.chartLabelsTextStyle,
+                    //textStyle: Styles.chartLabelsTextStyle,
                     rotateAngle: 35.0,
                     getTitles: (double value) {
                       switch (value.toInt()) {
@@ -69,7 +69,7 @@ class CovidBarChart extends StatelessWidget {
                   leftTitles: SideTitles(
                       margin: 10.0,
                       showTitles: true,
-                      textStyle: Styles.chartLabelsTextStyle,
+                      // textStyle: Styles.chartLabelsTextStyle,
                       getTitles: (value) {
                         if (value == 0) {
                           return '0';
@@ -97,8 +97,9 @@ class CovidBarChart extends StatelessWidget {
                           x: key,
                           barRods: [
                             BarChartRodData(
+                              colors: [Colors.red],
                               y: value,
-                              color: Colors.red,
+                              //color: Colors.red,
                             ),
                           ],
                         )))

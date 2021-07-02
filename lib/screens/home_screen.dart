@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 CountryDropdown(
                   countries: ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
                   country: _country,
-                  onChanged: (val) => setState(() => _country = val),
+                  onChanged: (val) => setState(() => _country = val!),
                 ),
               ],
             ),
