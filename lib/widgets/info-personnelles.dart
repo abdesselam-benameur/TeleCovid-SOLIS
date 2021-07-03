@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class InfoPersonnelles extends StatelessWidget {
   final String nomComplet;
-  final int age;
+  final String age;
   final String adrese;
   final String numTel;
 

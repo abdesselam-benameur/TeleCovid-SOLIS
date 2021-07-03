@@ -125,7 +125,10 @@ class _HomeState extends State<Home> {
     }
     return GestureDetector(
       onTap: () {
-        Route route = MaterialPageRoute(builder: (context) => ProfilePatient());
+        Route route = MaterialPageRoute(
+            builder: (context) => ProfilePatient(
+                  index: index,
+                ));
         Navigator.push(context, route);
       }, // go to the Patient profile
       child: Container(

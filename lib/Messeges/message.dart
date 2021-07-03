@@ -19,36 +19,37 @@ class _ChatPageState extends State<ChatPage> {
   final third = Color.fromARGB(255, 255, 77, 88);
   final TextEditingController _text = new TextEditingController();
   ScrollController scrollController = ScrollController();
-
-  _ChatPageState({Key? key, required this.index, required this.user});
+  bool newMessage = false;
+  var messages;
+  String _textMessage = '';
+  _ChatPageState({Key? key, required this.index, required this.user}) {
+    messages = Users().getUser(index).messages;
+  }
 
   @override
   Widget build(BuildContext context) {
-    var messages = Users().getUser(index).messages;
-    messages.add(ChatMessage(
-        messageContent: "hi every one",
-        messageType: "Sender",
-        time: TimeOfDay.now().toString()));
-    callback() {
-      setState(() {
-        _text.addListener(() {
-          if (_text.text.isEmpty) {
-          } else {
-            setState(() {
-              ChatMessage value = ChatMessage(
-                  messageContent: _text.text,
-                  messageType: "Sender",
-                  time: TimeOfDay.now().toString());
-              messages.add(value);
-              //_text.clear();
-              scrollController.animateTo(
-                scrollController.position.maxScrollExtent,
-                curve: Curves.easeOut,
-                duration: const Duration(milliseconds: 300),
-              );
-            });
-          }
-        });
+    setState(() {
+      if (newMessage) {
+        messages.add(ChatMessage(
+            messageContent: _textMessage,
+            messageType: "Sender",
+            time: TimeOfDay.now().toString()));
+        //_textMessage = "";
+        newMessage = false;
+      }
+    });
+    void callback() async {
+      _text.addListener(() {
+        if (_text.text.isNotEmpty && !newMessage) {
+          newMessage = true;
+          _textMessage = _text.text;
+          _text.clear();
+          scrollController.animateTo(
+            scrollController.position.maxScrollExtent,
+            curve: Curves.easeOut,
+            duration: const Duration(milliseconds: 300),
+          );
+        }
       });
     }
 
@@ -74,10 +75,12 @@ class _ChatPageState extends State<ChatPage> {
                 SizedBox(
                   width: 2,
                 ),
-                CircleAvatar(
-                  backgroundImage: AssetImage(user.imageURL),
-                  maxRadius: 20,
-                ),
+                newMessage
+                    ? Container()
+                    : CircleAvatar(
+                        backgroundImage: AssetImage(user.imageURL),
+                        maxRadius: 20,
+                      ),
                 SizedBox(
                   width: 12,
                 ),
@@ -106,7 +109,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: double.infinity,
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
@@ -122,58 +125,7 @@ class _ChatPageState extends State<ChatPage> {
                     padding: EdgeInsets.only(top: 10, bottom: 10),
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return
-                          // Column(children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                  left: 14, right: 14, top: 10, bottom: 10),
-                              child: Align(
-                                alignment:
-                                    (messages[index].messageType == "receiver"
-                                        ? Alignment.topLeft
-                                        : Alignment.topRight),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: (messages[index].messageType ==
-                                            "receiver"
-                                        ? Colors.grey.shade200
-                                        : secondary),
-                                  ),
-                                  padding: EdgeInsets.all(16),
-                                  child: Text(
-                                    messages[index].messageContent,
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                ),
-                              ));
-                      /*  newMessage
-                              ? Container(
-                                  padding: EdgeInsets.only(
-                                      left: 14, right: 14, top: 10, bottom: 10),
-                                  child: Align(
-                                    alignment: (messages[index].messageType ==
-                                            "receiver"
-                                        ? Alignment.topLeft
-                                        : Alignment.topRight),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: (messages[index].messageType ==
-                                                "receiver"
-                                            ? Colors.grey.shade200
-                                            : secondary),
-                                      ),
-                                      padding: EdgeInsets.all(16),
-                                      child: Text(
-                                        messages[index].messageContent,
-                                        style: TextStyle(fontSize: 15),
-                                      ),
-                                    ),
-                                  ))
-                              : Container(),*/
-                      // ]);
-                      /*Container(
+                      return Container(
                           padding: EdgeInsets.only(
                               left: 14, right: 14, top: 10, bottom: 10),
                           child: Align(
@@ -195,7 +147,7 @@ class _ChatPageState extends State<ChatPage> {
                                 style: TextStyle(fontSize: 15),
                               ),
                             ),
-                          ));*/
+                          ));
                     }),
               ),
             ),
@@ -231,7 +183,7 @@ class _ChatPageState extends State<ChatPage> {
                     Expanded(
                       child: TextField(
                           controller: _text,
-                          onSubmitted: (value) => callback(),
+                          //onSubmitted: (value) => callback(),
                           decoration: InputDecoration(
                               hintText: "Écrire un message ...",
                               hintStyle: TextStyle(color: Colors.black54),
@@ -240,16 +192,19 @@ class _ChatPageState extends State<ChatPage> {
                     SizedBox(
                       width: 15,
                     ),
-                    FloatingActionButton(
-                      onPressed: callback,
-                      child: Icon(
-                        Icons.send,
-                        color: Colors.white,
-                        size: 18,
+                    GestureDetector(
+                      onTap: callback,
+                      child: FloatingActionButton(
+                        onPressed: () {},
+                        child: Icon(
+                          Icons.send,
+                          color: Colors.white,
+                          size: 18,
+                        ),
+                        backgroundColor: Color.fromARGB(200, 77, 121, 255),
+                        elevation: 0,
                       ),
-                      backgroundColor: Color.fromARGB(200, 77, 121, 255),
-                      elevation: 0,
-                    ),
+                    )
                   ],
                 ),
               ),

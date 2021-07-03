@@ -14,7 +14,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     Scaffold(),
     ContactPage(),
-    ProfilePatient(),
+    ProfilePatient(index: 2),
   ];
   int _currentIndex = 0;
 

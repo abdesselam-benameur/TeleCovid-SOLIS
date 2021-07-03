@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tele_covid_solis/Model/patientModel.dart';
 import 'package:tele_covid_solis/widgets/info-m%C3%A9dicales.dart';
 import 'package:tele_covid_solis/widgets/info-personnelles.dart';
 
 class ProfilePatient extends StatelessWidget {
-  const ProfilePatient({Key? key}) : super(key: key);
+  int index;
+  ProfilePatient({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var data = Patients().getdata()[index];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF473F97),
@@ -32,14 +35,14 @@ class ProfilePatient extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
-                  'assets/images/pic.png',
+                  data.photo,
                 ),
               ),
               InfoPersonnelles(
-                nomComplet: "Abdesselam Benameur",
-                age: 21,
-                adrese: 'Quartier al-zohour, N’gaous, Wilaya de Batna',
-                numTel: '0664494457',
+                nomComplet: data.nom,
+                age: data.age,
+                adrese: data.adresse,
+                numTel: data.numero,
               ),
               InfoMedicales(),
             ],
