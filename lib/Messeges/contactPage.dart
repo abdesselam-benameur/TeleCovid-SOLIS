@@ -40,16 +40,16 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
+        leading: Builder(builder: (BuildContext context) {
+          return IconButton(
               icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            );
-          },
-        ),
+              onPressed: (list.length == 4)
+                  ? () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    }
+                  : () {});
+        }),
         backgroundColor: primary,
         centerTitle: false,
         title: Text(
