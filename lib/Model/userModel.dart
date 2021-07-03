@@ -31,7 +31,7 @@ class Users {
     ChatUsers(
         name: "Boudeffa Zakaria",
         messageText: "Moi:Merci, restez...",
-        imageURL: "images/zakaria.jpeg",
+        imageURL: "assets/images/zakaria.jpeg",
         time: "hier",
         messages: [
           ChatMessage(
@@ -56,7 +56,7 @@ class Users {
     ChatUsers(
         name: "Amel Beldjilali",
         messageText: "je vais envoyer ...",
-        imageURL: "images/Amel.jpeg",
+        imageURL: "assets/images/Amel.jpeg",
         time: "31 Mar",
         messages: [
           ChatMessage(
@@ -81,7 +81,7 @@ class Users {
     ChatUsers(
         name: "KORBAA Hamza",
         messageText: "Pardon ",
-        imageURL: "images/hamza.jpeg",
+        imageURL: "assets/images/hamza.jpeg",
         time: "28 Mar",
         messages: [
           ChatMessage(
@@ -106,7 +106,7 @@ class Users {
     ChatUsers(
         name: "Ayoub Titoun",
         messageText: "La douleur est partie ",
-        imageURL: "images/ayoub.jpeg",
+        imageURL: "assets/images/ayoub.jpeg",
         time: "23 Mar",
         messages: [
           ChatMessage(
