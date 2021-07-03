@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tele_covid_solis/widgets/custom_app_bar.dart';
 import 'package:tele_covid_solis/widgets/info-m%C3%A9dicales.dart';
 import 'package:tele_covid_solis/widgets/info-personnelles.dart';
 
@@ -9,6 +10,7 @@ class ProfilePatient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: CustomAppBar("Mon Profil"),
       appBar: AppBar(
         backgroundColor: Color(0xFF473F97),
         automaticallyImplyLeading: true,

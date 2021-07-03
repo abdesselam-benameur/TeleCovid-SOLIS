@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/config/palette.dart';
 import 'package:tele_covid_solis/config/styles.dart';
 import 'package:tele_covid_solis/data/data.dart';
+import 'package:tele_covid_solis/screens/questionnaire-page.dart';
 import 'package:tele_covid_solis/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,13 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar("TéléCovid"),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(screenHeight),
           _buildPreventionTips(screenHeight),
-          _buildYourOwnTest(screenHeight),
+          _buildQuestionnaireReminder(screenHeight),
         ],
       ),
     );
@@ -124,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Prevention Tips',
+              'Conseils de prévention',
               style: const TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.w600,
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20.0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: prevention
                   .map((e) => Column(
                         children: <Widget>[
@@ -159,49 +160,38 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  SliverToBoxAdapter _buildYourOwnTest(double screenHeight) {
+  SliverToBoxAdapter _buildQuestionnaireReminder(double screenHeight) {
     return SliverToBoxAdapter(
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
-          horizontal: 20.0,
-        ),
-        padding: const EdgeInsets.all(10.0),
-        height: screenHeight * 0.15,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+      child: GestureDetector(
+        onTap: () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => QuestionnairePageWidget())),
+        child: Container(
+          margin: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 20.0,
           ),
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Image.asset('assets/images/own_test.png'),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Do your own test!',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+          padding: const EdgeInsets.all(10.0),
+          height: screenHeight * 0.15,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+            ),
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Image.asset('assets/images/questionnaire.png'),
+              Text(
+                'Vous avez un questionnaire à\nremplir sur votre état de santé!',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(height: screenHeight * 0.01),
-                Text(
-                  'Follow the instructions\nto do your own test.',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
-                  maxLines: 2,
-                ),
-              ],
-            )
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

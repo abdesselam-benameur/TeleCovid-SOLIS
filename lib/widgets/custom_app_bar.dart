@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/config/palette.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  final String titre;
+
+  const CustomAppBar(this.titre);
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Palette.primaryColor,
       elevation: 0.0,
       title: Text(
-        "TéléCovid",
+        titre,
         style: TextStyle(fontSize: 26),
       ),
       // centerTitle: true,

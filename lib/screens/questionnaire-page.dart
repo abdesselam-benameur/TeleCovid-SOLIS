@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionnairePageWidget extends StatefulWidget {
-  QuestionnairePageWidget({required Key key}) : super(key: key);
+  //QuestionnairePageWidget({required Key key}) : super(key: key);
 
   @override
   _QuestionnairePageWidgetState createState() =>
@@ -47,12 +47,15 @@ class _QuestionnairePageWidgetState extends State<QuestionnairePageWidget> {
                   children: [
                     Text(
                       'Question 1',
-                      // style: FlutterFlowTheme.title1.override(
-                      //   fontFamily: 'Poppins',
-                      //   color: Colors.white,
-                      //   fontSize: 30,
-                      // ),
-                    )
+                      style: GoogleFonts.lato(
+                        textStyle: TextStyle(
+                          //FlutterFlowTheme.title1.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
