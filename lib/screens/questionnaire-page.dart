@@ -74,7 +74,7 @@ class _QuestionnairePageWidgetState extends State<QuestionnairePageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Row(
-                        mainAxisSize: MainAxisSize.max,
+                        // mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
