@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/Model/patientModel.dart';
+import 'package:tele_covid_solis/screens/pofile-patient.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -124,8 +125,8 @@ class _HomeState extends State<Home> {
     }
     return GestureDetector(
       onTap: () {
-        //Route route = MaterialPageRoute(builder: (context)=>profil());
-        //Navigator.push(context, route);
+        Route route = MaterialPageRoute(builder: (context) => ProfilePatient());
+        Navigator.push(context, route);
       }, // go to the Patient profile
       child: Container(
         decoration: BoxDecoration(
@@ -150,7 +151,7 @@ class _HomeState extends State<Home> {
                 //border: Border.all(width: 3, color: secondary),
                 image: DecorationImage(
                     image: AssetImage(
-                      "images/patient.jpg",
+                      "assets/images/patient.jpg",
                     ),
                     fit: BoxFit.cover),
               ),

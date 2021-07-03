@@ -1,4 +1,7 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:tele_covid_solis/Messeges/contactPage.dart';
+import 'package:tele_covid_solis/screens/pofile-patient.dart';
 import 'screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -9,10 +12,9 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
-    StatsScreen(),
     Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    ContactPage(),
+    ProfilePatient(),
   ];
   int _currentIndex = 0;
 
@@ -30,7 +32,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         elevation: 0.0,
-        items: [Icons.home, Icons.insert_chart, Icons.event_note, Icons.info]
+        items: [Icons.home, Icons.event_note, Icons.message, Icons.person]
             .asMap()
             .map((key, value) => MapEntry(
                   key,

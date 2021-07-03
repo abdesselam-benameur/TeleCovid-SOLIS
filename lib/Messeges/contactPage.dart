@@ -37,10 +37,10 @@ class _ContactPageState extends State<ContactPage> {
           },
         ),
         backgroundColor: primary,
-        centerTitle: true,
+        centerTitle: false,
         title: Text(
           "Messages",
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(
@@ -134,12 +134,12 @@ class _ConversationListState extends State<ConversationList> {
                       border: Border.all(width: 3, color: Colors.white),
                       image: DecorationImage(
                           image: AssetImage((widget.index == 0)
-                              ? "images/zakaria.jpeg"
+                              ? "assets/images/zakaria.jpeg"
                               : (widget.index == 1)
-                                  ? "images/Amel.jpeg"
+                                  ? "assets/images/Amel.jpeg"
                                   : (widget.index == 2)
-                                      ? "images/hamza.jpeg"
-                                      : "images/Ayoub.jpeg"),
+                                      ? "assets/images/hamza.jpeg"
+                                      : "assets/images/Ayoub.jpeg"),
                           fit: BoxFit.cover),
                     ),
                   ),
