@@ -2,23 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/config/palette.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  final String titre;
+
+  const CustomAppBar(this.titre);
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Palette.primaryColor,
       elevation: 0.0,
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        iconSize: 28.0,
-        onPressed: () {},
+      title: Text(
+        titre,
+        style: TextStyle(fontSize: 26),
       ),
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.notifications_none),
-          iconSize: 28.0,
-          onPressed: () {},
-        ),
-      ],
+      // centerTitle: true,
+      // leading: IconButton(
+      //   icon: const Icon(Icons.menu),
+      //   iconSize: 28.0,
+      //   onPressed: () {},
+      // ),
+      // actions: <Widget>[
+      //   IconButton(
+      //     icon: const Icon(Icons.notifications_none),
+      //     iconSize: 28.0,
+      //     onPressed: () {},
+      //   ),
+      // ],
     );
   }
 

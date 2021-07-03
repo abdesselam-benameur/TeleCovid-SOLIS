@@ -29,6 +29,7 @@ class InfoPersonnelles extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(22, 12, 22, 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Informations Personnelles',
