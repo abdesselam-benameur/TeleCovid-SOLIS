@@ -73,32 +73,34 @@ class _QuestionnairePageWidgetState extends State<QuestionnairePageWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.solidHandPointRight,
-                            color: Colors.black,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFEEEEEE),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 18),
+                        child: Row(
+                          // mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.solidHandPointRight,
+                              color: Colors.black,
+                              size: 28,
                             ),
-                            alignment: Alignment(0, 0),
-                            child: Text(
-                              'Mesurez votre température',
-                              textAlign: TextAlign.start,
-                              // style: FlutterFlowTheme.title3.override(
-                              //   fontFamily: 'Poppins',
-                              // ),
-                            ),
-                          )
-                        ],
+                            SizedBox(width: 20),
+                            Container(
+                              // width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFEEEEEE),
+                              ),
+                              alignment: Alignment(0, 0),
+                              child: Text(
+                                'Mesurez votre température',
+                                textAlign: TextAlign.start,
+                                style: GoogleFonts.lato(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         width: 100,
@@ -110,6 +112,7 @@ class _QuestionnairePageWidgetState extends State<QuestionnairePageWidget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
+                            fillColor: Color(0xFFE2E0EE),
                             hintText: 'Votre réponse',
                             // hintStyle: FlutterFlowTheme.subtitle1.override(
                             //   fontFamily: 'Poppins',

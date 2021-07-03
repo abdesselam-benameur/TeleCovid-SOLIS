@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.1
   url_launcher: ^6.0.8
+  syncfusion_flutter_gauges: ^19.2.44
 
 dev_dependencies:
   flutter_test:
