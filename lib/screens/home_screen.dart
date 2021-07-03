@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
             vertical: 10.0,
             horizontal: 20.0,
           ),
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(15.0),
           height: screenHeight * 0.15,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -179,17 +179,23 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Image.asset('assets/images/questionnaire.png'),
-              Text(
-                'Vous avez un questionnaire à\nremplir sur votre état de santé!',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              SizedBox(
+                width: 14,
               ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.55,
+                child: Text(
+                  'Vous avez un questionnaire à remplir sur votre état de santé!',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
             ],
           ),
         ),
