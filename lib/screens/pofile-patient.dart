@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tele_covid_solis/Model/patientModel.dart';
+import 'package:tele_covid_solis/config/palette.dart';
 import 'package:tele_covid_solis/widgets/custom_app_bar.dart';
 import 'package:tele_covid_solis/widgets/info-m%C3%A9dicales.dart';
 import 'package:tele_covid_solis/widgets/info-personnelles.dart';
@@ -23,8 +24,16 @@ class ProfilePatient extends StatelessWidget {
       ),
       backgroundColor: Color(0xFF473F97),
       body: SafeArea(
-        child: Padding(
+        child: Container(
+          width: double.infinity,
           padding: EdgeInsets.fromLTRB(19, 0, 19, 0),
+          decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(40.0),
+              bottomRight: Radius.circular(40.0),
+            ),
+          ),
           child: ListView(
             padding: EdgeInsets.zero,
             scrollDirection: Axis.vertical,
@@ -35,6 +44,7 @@ class ProfilePatient extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
+                  border: Border.all(width: 7, color: Colors.blue),
                 ),
                 child: Image.asset(
                   data.photo,

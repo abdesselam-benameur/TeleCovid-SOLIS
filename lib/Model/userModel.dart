@@ -28,6 +28,7 @@ class ChatMessage {
 
 class Users {
   List<ChatUsers> _users = [
+    //0
     ChatUsers(
         name: "Boudeffa Zakaria",
         messageText: "Moi:Merci, restez...",
@@ -53,6 +54,7 @@ class Users {
               messageType: "sender",
               time: '8:10'),
         ]),
+    //1
     ChatUsers(
         name: "Amel Beldjilali",
         messageText: "je vais envoyer ...",
@@ -78,6 +80,7 @@ class Users {
               messageType: "sender",
               time: '8:10'),
         ]),
+    //2
     ChatUsers(
         name: "KORBAA Hamza",
         messageText: "Pardon ",
@@ -103,6 +106,7 @@ class Users {
               messageType: "sender",
               time: '8:10'),
         ]),
+    //3
     ChatUsers(
         name: "Ayoub Titoun",
         messageText: "La douleur est partie ",
@@ -128,10 +132,92 @@ class Users {
               messageType: "sender",
               time: '8:10'),
         ]),
+    //4
+    ChatUsers(
+        name: "Dr.Benakmoume",
+        messageText: "Merci, restez...",
+        imageURL: "assets/images/doctor1.jpeg",
+        time: "hier",
+        messages: [
+          ChatMessage(
+              messageContent: "Bonjour, Monsieur Zakaria",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "n'oubliez pas de remplir le questionnaire",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "Eh bien", messageType: "sender", time: '8:05'),
+          ChatMessage(
+              messageContent: "je vais le remplir maintenant ",
+              messageType: "sender",
+              time: '8:05'),
+          ChatMessage(
+              messageContent: "Merci, restez en bonne santé ",
+              messageType: "receiver",
+              time: '8:10'),
+        ]),
+    //5
+    ChatUsers(
+        name: "Dr.Djabelkhir",
+        messageText: "au revoir",
+        imageURL: "assets/images/doctor02.jpeg",
+        time: "21 juin",
+        messages: [
+          ChatMessage(
+              messageContent: "Bonjour, Monsieur Zakaria",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "n'oubliez pas de remplir le questionnaire",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "Eh bien", messageType: "sender", time: '8:05'),
+          ChatMessage(
+              messageContent: "je vais le remplir maintenant ",
+              messageType: "sender",
+              time: '8:05'),
+          ChatMessage(
+              messageContent: "Merci, restez en bonne santé ",
+              messageType: "receiver",
+              time: '8:10'),
+        ]),
+    //6
+    ChatUsers(
+        name: "Dr.Benameur",
+        messageText: "Moi: Pardon ",
+        imageURL: "assets/images/doctor5.jpeg",
+        time: "28 Mar",
+        messages: [
+          ChatMessage(
+              messageContent: "Bonjour, Monsieur Zakaria",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "n'oubliez pas de remplir le questionnaire",
+              messageType: "receiver",
+              time: '8:02'),
+          ChatMessage(
+              messageContent: "Eh bien", messageType: "sender", time: '8:05'),
+          ChatMessage(
+              messageContent: "je vais le remplir maintenant ",
+              messageType: "sender",
+              time: '8:05'),
+          ChatMessage(
+              messageContent: "Merci, restez en bonne santé ",
+              messageType: "receiver",
+              time: '8:10'),
+        ]),
   ];
 
-  List<ChatUsers> getUsers() {
-    return _users;
+  List<ChatUsers> getUsers(List<int> list) {
+    List<ChatUsers> result = [];
+    for (int i in list) {
+      result.add(getUser(i));
+    }
+    return result;
   }
 
   ChatUsers getUser(index) {

@@ -13,7 +13,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
     Scaffold(),
-    ContactPage(),
+    ContactPage(list: [4, 5, 6]),
     ProfilePatient(index: 2),
   ];
   int _currentIndex = 0;

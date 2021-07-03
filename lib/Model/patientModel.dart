@@ -25,7 +25,7 @@ class Patients {
         numero: "0667405218"),
     //1
     Patient(
-        photo: "assets/images/ayoub.png",
+        photo: "assets/images/Ayoub.png",
         nom: "Ayoub Titoun",
         age: "21",
         adresse: "Bordj menaiel, Alger",
@@ -46,7 +46,7 @@ class Patients {
         numero: "0244760280"),
     //4
     Patient(
-        photo: "assets/images/amel.png",
+        photo: "assets/images/Amel.png",
         nom: "Amel Beldjilali",
         age: "21",
         adresse: "M'kira, Tizi-Ouzou",

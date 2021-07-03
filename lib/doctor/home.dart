@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
               onPressed: () => {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return ContactPage();
+                      return ContactPage(list: [0, 1, 2, 3]);
                     }))
                   })
         ],

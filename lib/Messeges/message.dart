@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/Model/messageModel.dart';
 import 'package:tele_covid_solis/Model/userModel.dart';
 
@@ -38,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
         newMessage = false;
       }
     });
-    void callback() async {
+    callback() {
       _text.addListener(() {
         if (_text.text.isNotEmpty && !newMessage) {
           newMessage = true;
@@ -65,7 +66,15 @@ class _ChatPageState extends State<ChatPage> {
               children: <Widget>[
                 IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    (index < 4)
+                        ? Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                            return ContactPage(list: [0, 1, 2, 3]);
+                          }))
+                        : Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                            return ContactPage(list: [4, 5, 6]);
+                          }));
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,
@@ -75,12 +84,10 @@ class _ChatPageState extends State<ChatPage> {
                 SizedBox(
                   width: 2,
                 ),
-                newMessage
-                    ? Container()
-                    : CircleAvatar(
-                        backgroundImage: AssetImage(user.imageURL),
-                        maxRadius: 20,
-                      ),
+                CircleAvatar(
+                  backgroundImage: AssetImage(user.imageURL),
+                  maxRadius: 20,
+                ),
                 SizedBox(
                   width: 12,
                 ),
@@ -125,29 +132,7 @@ class _ChatPageState extends State<ChatPage> {
                     padding: EdgeInsets.only(top: 10, bottom: 10),
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return Container(
-                          padding: EdgeInsets.only(
-                              left: 14, right: 14, top: 10, bottom: 10),
-                          child: Align(
-                            alignment:
-                                (messages[index].messageType == "receiver"
-                                    ? Alignment.topLeft
-                                    : Alignment.topRight),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color:
-                                    (messages[index].messageType == "receiver"
-                                        ? Colors.grey.shade200
-                                        : secondary),
-                              ),
-                              padding: EdgeInsets.all(16),
-                              child: Text(
-                                messages[index].messageContent,
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ),
-                          ));
+                      return buildCards(context, index);
                     }),
               ),
             ),
@@ -213,5 +198,28 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
     );
+  }
+
+  Widget buildCards(BuildContext context, int index) {
+    return Container(
+        padding: EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+        child: Align(
+          alignment: (messages[index].messageType == "receiver"
+              ? Alignment.topLeft
+              : Alignment.topRight),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: (messages[index].messageType == "receiver"
+                  ? Colors.grey.shade200
+                  : secondary),
+            ),
+            padding: EdgeInsets.all(16),
+            child: Text(
+              messages[index].messageContent,
+              style: TextStyle(fontSize: 15),
+            ),
+          ),
+        ));
   }
 }

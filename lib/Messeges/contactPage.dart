@@ -5,21 +5,37 @@ import 'package:tele_covid_solis/Model/userModel.dart';
 import 'package:tele_covid_solis/doctor/home.dart';
 
 class ContactPage extends StatefulWidget {
-  const ContactPage({Key? key}) : super(key: key);
+  List<int> list;
+  ContactPage({Key? key, required this.list}) : super(key: key);
 
   @override
-  _ContactPageState createState() => _ContactPageState();
+  _ContactPageState createState() => _ContactPageState(list: list);
 }
 
 class _ContactPageState extends State<ContactPage> {
-  List<ChatUsers> data = Users().getUsers();
-
+  List<int> list;
+  List<ChatUsers> data = [];
   final primary = Color.fromARGB(255, 71, 63, 151);
   final secondary = Color.fromARGB(200, 77, 121, 255);
   final third = Color.fromARGB(255, 255, 77, 88);
 
   final TextEditingController _search = new TextEditingController();
-
+  String _searchText = "";
+  _ContactPageState({Key? key, required this.list}) {
+    data = Users().getUsers(list);
+    _search.addListener(() {
+      if (_search.text.isEmpty) {
+        setState(() {
+          _searchText = "";
+        });
+      } else {
+        setState(() {
+          _searchText = _search.text;
+        });
+      }
+      ;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +45,7 @@ class _ContactPageState extends State<ContactPage> {
             return IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Home();
-                }));
+                Navigator.pop(context);
               },
             );
           },
@@ -51,6 +65,7 @@ class _ContactPageState extends State<ContactPage> {
             Padding(
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: TextField(
+                controller: _search,
                 decoration: InputDecoration(
                   hintText: "Rechercher",
                   hintStyle: TextStyle(color: Colors.grey.shade600),
@@ -74,14 +89,28 @@ class _ContactPageState extends State<ContactPage> {
               padding: EdgeInsets.only(top: 16),
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return ConversationList(
-                  index: index,
-                  name: data[index].name,
-                  messageText: data[index].messageText,
-                  imageUrl: data[index].imageURL,
-                  time: data[index].time,
-                  isMessageRead: (index == 0 || index == 3) ? true : false,
-                );
+                return ((_searchText == null) || (_searchText == ""))
+                    ? ConversationList(
+                        index: list[index],
+                        name: data[index].name,
+                        messageText: data[index].messageText,
+                        imageUrl: data[index].imageURL,
+                        time: data[index].time,
+                        isMessageRead: (index == 0) ? true : false,
+                      )
+                    : ((data[index]
+                            .name
+                            .toLowerCase()
+                            .contains(_searchText.toLowerCase()))
+                        ? ConversationList(
+                            index: index,
+                            name: data[index].name,
+                            messageText: data[index].messageText,
+                            imageUrl: data[index].imageURL,
+                            time: data[index].time,
+                            isMessageRead: (index == 0) ? true : false,
+                          )
+                        : Container());
               },
             ),
           ],
@@ -115,7 +144,7 @@ class _ConversationListState extends State<ConversationList> {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return ChatPage(index: widget.index);
+          return ChatPage(index: widget.index + 4);
         }));
       },
       child: Container(
@@ -133,13 +162,16 @@ class _ConversationListState extends State<ConversationList> {
                       borderRadius: BorderRadius.circular(50),
                       border: Border.all(width: 3, color: Colors.white),
                       image: DecorationImage(
-                          image: AssetImage((widget.index == 0)
-                              ? "assets/images/zakaria.jpeg"
-                              : (widget.index == 1)
-                                  ? "assets/images/Amel.jpeg"
-                                  : (widget.index == 2)
-                                      ? "assets/images/hamza.jpeg"
-                                      : "assets/images/Ayoub.jpeg"),
+                          image: AssetImage(widget.imageUrl
+
+                              // (widget.index == 0)
+                              //   ? "assets/images/zakaria.png"
+                              //   : (widget.index == 1)
+                              //       ? "assets/images/Amel.png"
+                              //       : (widget.index == 2)
+                              //           ? "assets/images/hamza.png"
+                              //           : "assets/images/Ayoub.png"
+                              ),
                           fit: BoxFit.cover),
                     ),
                   ),
