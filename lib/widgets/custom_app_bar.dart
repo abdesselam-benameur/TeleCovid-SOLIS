@@ -7,18 +7,23 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: Palette.primaryColor,
       elevation: 0.0,
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        iconSize: 28.0,
-        onPressed: () {},
+      title: Text(
+        "TéléCovid",
+        style: TextStyle(fontSize: 26),
       ),
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.notifications_none),
-          iconSize: 28.0,
-          onPressed: () {},
-        ),
-      ],
+      // centerTitle: true,
+      // leading: IconButton(
+      //   icon: const Icon(Icons.menu),
+      //   iconSize: 28.0,
+      //   onPressed: () {},
+      // ),
+      // actions: <Widget>[
+      //   IconButton(
+      //     icon: const Icon(Icons.notifications_none),
+      //     iconSize: 28.0,
+      //     onPressed: () {},
+      //   ),
+      // ],
     );
   }
 
