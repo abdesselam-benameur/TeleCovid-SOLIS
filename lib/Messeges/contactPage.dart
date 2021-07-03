@@ -134,12 +134,12 @@ class _ConversationListState extends State<ConversationList> {
                       border: Border.all(width: 3, color: Colors.white),
                       image: DecorationImage(
                           image: AssetImage((widget.index == 0)
-                              ? "assets/images/zakaria.jpeg"
+                              ? "assets/images/zakaria.png"
                               : (widget.index == 1)
-                                  ? "assets/images/Amel.jpeg"
+                                  ? "assets/images/Amel.png"
                                   : (widget.index == 2)
-                                      ? "assets/images/hamza.jpeg"
-                                      : "assets/images/Ayoub.jpeg"),
+                                      ? "assets/images/hamza.png"
+                                      : "assets/images/Ayoub.png"),
                           fit: BoxFit.cover),
                     ),
                   ),
