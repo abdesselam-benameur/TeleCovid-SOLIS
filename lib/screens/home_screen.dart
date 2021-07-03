@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Vous avez un questionnaire à remplir sur votre état de santé!',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 15.0,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

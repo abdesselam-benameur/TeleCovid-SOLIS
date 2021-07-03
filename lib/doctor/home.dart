@@ -154,7 +154,7 @@ class _HomeState extends State<Home> {
                 //border: Border.all(width: 3, color: secondary),
                 image: DecorationImage(
                     image: AssetImage(
-                      "assets/images/patient.jpg",
+                      data[index].photo,
                     ),
                     fit: BoxFit.cover),
               ),

@@ -12,7 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    bool patient = true;
+    bool patient = false;
     return MaterialApp(
       title: 'TeleCovid',
       debugShowCheckedModeBanner: false,

@@ -18,14 +18,14 @@ class Patients {
   List<Patient> _patients = [
     //0
     Patient(
-        photo: "assets/images/hamza.jpeg",
+        photo: "assets/images/hamza.png",
         nom: "KORBAA Hamza",
         age: "21",
         adresse: "Mohamadia, Mascara",
         numero: "0667405218"),
     //1
     Patient(
-        photo: "assets/images/ayoub.jpeg",
+        photo: "assets/images/ayoub.png",
         nom: "Ayoub Titoun",
         age: "21",
         adresse: "Bordj menaiel, Alger",
@@ -39,14 +39,14 @@ class Patients {
         numero: "0674939657"),*/
     //3
     Patient(
-        photo: "assets/images/zakaria.jpeg",
+        photo: "assets/images/zakaria.png",
         nom: "Boudefaa Zakaria",
         age: "20",
         adresse: "Aïn Kechra, Skikda",
         numero: "0244760280"),
     //4
     Patient(
-        photo: "assets/images/amel.jpeg",
+        photo: "assets/images/amel.png",
         nom: "Amel Beldjilali",
         age: "21",
         adresse: "M'kira, Tizi-Ouzou",
