@@ -29,8 +29,10 @@ class Screenhome extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(index: "doctor")));
               },
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
@@ -57,8 +59,10 @@ class Screenhome extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(index: "patient")));
               },
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
@@ -85,8 +89,10 @@ class Screenhome extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(index: "aidant")));
               },
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),

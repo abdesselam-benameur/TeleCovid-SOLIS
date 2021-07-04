@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tele_covid_solis/Model/messageModel.dart';
 
 class ChatUsers {
   String name;

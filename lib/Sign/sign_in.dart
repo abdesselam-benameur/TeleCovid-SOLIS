@@ -1,19 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:tele_covid_solis/doctor/home.dart';
 import 'package:tele_covid_solis/screens/bottom_nav_screen.dart';
 
 import 'Constant.dart';
 
 class LoginPage extends StatefulWidget {
+  String index;
+  LoginPage({Key? key, required this.index});
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _LoginPageState createState() => new _LoginPageState(index: index);
 }
 
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late String _email, _password, _name;
+  String index;
 
+  _LoginPageState({Key? key, required this.index});
   get ktextinptDecoration => null;
 
   @override
@@ -81,7 +86,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  onPressed: signIn,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => index == "doctor"
+                                ? Home()
+                                : BottomNavScreen()));
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   ),

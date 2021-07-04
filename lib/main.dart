@@ -7,6 +7,7 @@ import 'package:tele_covid_solis/Messeges/message.dart';
 import 'package:tele_covid_solis/Sign/SignUpScreen.dart';
 import 'package:tele_covid_solis/Sign/screen_HOME.dart';
 import 'package:tele_covid_solis/doctor/home.dart';
+import 'package:tele_covid_solis/screens/pofile-patient.dart';
 import 'package:tele_covid_solis/screens/questionnaire-page.dart';
 import 'package:tele_covid_solis/screens/screens.dart';
 
@@ -27,8 +28,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: Screenhome(),
-      home: patient ? BottomNavScreen() : Home(),
+      home: Screenhome(),
+      // home: patient ? BottomNavScreen() : Home(),
       // home: QuestionnairePageWidget(),
     );
   }
