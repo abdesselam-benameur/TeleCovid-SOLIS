@@ -15,17 +15,12 @@ class ProfilePatient extends StatelessWidget {
     var data = Patients().getdata()[index];
     return Scaffold(
       // appBar: CustomAppBar("Mon Profil"),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF473F97),
-        automaticallyImplyLeading: true,
-        actions: [],
-        centerTitle: true,
-        elevation: 0,
-      ),
+
       backgroundColor: Color(0xFF473F97),
       body: SafeArea(
         child: Container(
           width: double.infinity,
+          height: double.infinity,
           padding: EdgeInsets.fromLTRB(19, 0, 19, 0),
           decoration: BoxDecoration(
             color: Palette.primaryColor,
@@ -38,7 +33,11 @@ class ProfilePatient extends StatelessWidget {
             padding: EdgeInsets.zero,
             scrollDirection: Axis.vertical,
             children: [
+              SizedBox(
+                height: 32,
+              ),
               Container(
+                //  padding: EdgeInsets.only(top: 32),
                 width: 150,
                 height: 150,
                 clipBehavior: Clip.antiAlias,
@@ -56,7 +55,10 @@ class ProfilePatient extends StatelessWidget {
                 adrese: data.adresse,
                 numTel: data.numero,
               ),
-              InfoMedicales(),
+              InfoMedicales(index: index),
+              SizedBox(
+                height: 32,
+              ),
             ],
           ),
         ),
