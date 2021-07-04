@@ -1,31 +1,35 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:tele_covid_solis/Model/Questions.dart';
 // import 'package:tele_covid_solis/screens/score/score_screen.dart';
 
-// We use get package for our state management
-
-class QuestionController {
-  late int index = 1;
+class QuestionController with ChangeNotifier {
+  //, DiagnosticableTreeMixin {
+  late int index = 0;
   late PageController _pageController = PageController();
   PageController get pageController => this._pageController;
 
   void incrementQnNum() {
-    this.index++; // = index + 1;
+    this.index++;
+    print(index);
     _pageController.nextPage(
         duration: Duration(milliseconds: 250), curve: Curves.ease);
+    notifyListeners();
   }
 
   void decrementQnNum() {
-    this.index--; // = index + 1;
+    if (index > 0) this.index--;
+    print(index);
     _pageController.previousPage(
         duration: Duration(milliseconds: 250), curve: Curves.ease);
+    notifyListeners();
   }
 
-  // QuestionController(this._pageController) {
-  //   this._pageController;
+  // @override
+  // void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  //   super.debugFillProperties(properties);
+  //   properties.add(IntProperty('index', index));
   // }
 }
 

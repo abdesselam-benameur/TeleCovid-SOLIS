@@ -1,4 +1,4 @@
-import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
+// import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/config/palette.dart';
 import 'package:tele_covid_solis/config/styles.dart';
@@ -66,21 +66,21 @@ class _StatsScreenState extends State<StatsScreen> {
             color: Colors.white24,
             borderRadius: BorderRadius.circular(25.0),
           ),
-          child: TabBar(
-            indicator: BubbleTabIndicator(
-              tabBarIndicatorSize: TabBarIndicatorSize.tab,
-              indicatorHeight: 40.0,
-              indicatorColor: Colors.white,
-            ),
-            labelStyle: Styles.tabTextStyle,
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.white,
-            tabs: <Widget>[
-              Text('My Country'),
-              Text('Global'),
-            ],
-            onTap: (index) {},
-          ),
+          // child: TabBar(
+          //   indicator: BubbleTabIndicator(
+          //     tabBarIndicatorSize: TabBarIndicatorSize.tab,
+          //     indicatorHeight: 40.0,
+          //     indicatorColor: Colors.white,
+          //   ),
+          //   labelStyle: Styles.tabTextStyle,
+          //   labelColor: Colors.black,
+          //   unselectedLabelColor: Colors.white,
+          //   tabs: <Widget>[
+          //     Text('My Country'),
+          //     Text('Global'),
+          //   ],
+          //   onTap: (index) {},
+          // ),
         ),
       ),
     );

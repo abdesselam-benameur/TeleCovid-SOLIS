@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/controllers/question_controller.dart';
 
-class QuestionnaireButton extends StatelessWidget {
+class QuestionnaireButton extends StatefulWidget {
   const QuestionnaireButton(this.text, this.onPressed);
   final String text;
   final void Function()? onPressed;
+
+  @override
+  _QuestionnaireButtonState createState() => _QuestionnaireButtonState();
+}
+
+class _QuestionnaireButtonState extends State<QuestionnaireButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -16,13 +22,13 @@ class QuestionnaireButton extends StatelessWidget {
         ),
         backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
       ),
-      onPressed: onPressed,
+      onPressed: widget.onPressed,
       child: Container(
         alignment: Alignment(0, 0),
         width: 110,
         height: 35,
         child: Text(
-          text,
+          widget.text,
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),

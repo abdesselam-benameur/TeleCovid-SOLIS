@@ -1,4 +1,4 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/screens/pofile-patient.dart';
