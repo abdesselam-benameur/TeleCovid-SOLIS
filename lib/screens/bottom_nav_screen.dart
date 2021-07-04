@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/screens/pofile-patient.dart';
+import 'package:tele_covid_solis/widgets/calendarPage.dart';
 import 'screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
-    Scaffold(),
+    CalendarPage(),
     ContactPage(list: [4, 5, 6]),
     ProfilePatient(index: 2),
   ];

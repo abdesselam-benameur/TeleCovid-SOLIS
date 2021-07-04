@@ -57,32 +57,29 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         backgroundColor: primary,
         flexibleSpace: SafeArea(
           child: Container(
             padding: EdgeInsets.only(right: 16),
             child: Row(
               children: <Widget>[
-                IconButton(
+                /*IconButton(
                   onPressed: () {
                     (index < 4)
                         ? Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                             return ContactPage(list: [0, 1, 2, 3]);
                           }))
-                        : Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                            return ContactPage(list: [4, 5, 6]);
-                          }));
+                        : Navigator.pop(context);
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,
                     color: Colors.white,
                   ),
-                ),
+                ),*/
                 SizedBox(
-                  width: 2,
+                  width: 60,
                 ),
                 CircleAvatar(
                   backgroundImage: AssetImage(user.imageURL),

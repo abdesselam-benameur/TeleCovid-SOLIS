@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: 
   bubble_tab_indicator: ^0.1.6
   fl_chart: ^0.36.2
   google_fonts: ^2.1.0
@@ -31,7 +32,12 @@ dependencies:
   curved_navigation_bar: ^1.0.1
   url_launcher: ^6.0.8
   syncfusion_flutter_gauges: ^19.2.44
-  get: ^4.1.4
+  get: 
+  syncfusion_flutter_calendar: 
+  google_sign_in: 
+  googleapis_auth: 
+  googleapis: 
+  
 
 dev_dependencies:
   flutter_test:
