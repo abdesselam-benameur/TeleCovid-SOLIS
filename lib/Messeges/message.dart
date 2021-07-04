@@ -52,6 +52,7 @@ class _ChatPageState extends State<ChatPage> {
       } else {
         newMessage = false;
         _text.text = '';
+        value = "";
       }
     }
 
