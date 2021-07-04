@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+    import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/doctor/home.dart';
@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TeleCovid',
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   textTheme: GoogleFonts.lato(),
-      //   primarySwatch: Colors.blue,
-      //   scaffoldBackgroundColor: Colors.white,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
+      theme: ThemeData(
+        // textTheme: GoogleFonts.lato(),
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       home: patient ? BottomNavScreen() : Home(),
       // home: QuestionnairePageWidget(),
     );
