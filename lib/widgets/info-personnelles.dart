@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InfoPersonnelles extends StatelessWidget {
   final String nomComplet;
@@ -33,7 +34,7 @@ class InfoPersonnelles extends StatelessWidget {
             children: [
               Text(
                 'Informations Personnelles',
-                style: TextStyle(
+                style: GoogleFonts.lato(
                   fontSize: 24,
                 ),
               ),
@@ -74,13 +75,21 @@ class EntryRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Flexible(child: Text(entryKey), flex: 1),
         Flexible(
-            child: Text(
-              value,
-              textAlign: TextAlign.right,
-            ),
-            flex: 2),
+          child: Text(
+            entryKey,
+            style: GoogleFonts.lato(),
+          ),
+          flex: 1,
+        ),
+        Flexible(
+          child: Text(
+            value,
+            style: GoogleFonts.lato(),
+            textAlign: TextAlign.right,
+          ),
+          flex: 2,
+        ),
       ],
     );
   }

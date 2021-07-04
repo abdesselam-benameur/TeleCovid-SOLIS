@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tele_covid_solis/controllers/question_controller.dart';
 
 class QuestionnaireButton extends StatefulWidget {
@@ -15,6 +16,7 @@ class _QuestionnaireButtonState extends State<QuestionnaireButton> {
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
+        elevation: MaterialStateProperty.all<double>(5),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40.0),
@@ -29,7 +31,7 @@ class _QuestionnaireButtonState extends State<QuestionnaireButton> {
         height: 35,
         child: Text(
           widget.text,
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: GoogleFonts.lato(color: Colors.white, fontSize: 18),
         ),
       ),
     );

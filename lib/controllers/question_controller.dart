@@ -11,7 +11,7 @@ class QuestionController with ChangeNotifier {
   PageController get pageController => this._pageController;
 
   void incrementQnNum() {
-    this.index++;
+    if (index < 6) this.index++;
     print(index);
     _pageController.nextPage(
         duration: Duration(milliseconds: 250), curve: Curves.ease);

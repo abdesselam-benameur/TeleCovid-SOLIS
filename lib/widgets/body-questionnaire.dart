@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tele_covid_solis/controllers/question_controller.dart';
+import 'package:tele_covid_solis/widgets/quest-options.dart';
+import 'package:tele_covid_solis/widgets/questTextField.dart';
 import 'package:tele_covid_solis/widgets/questionCard.dart';
 import 'package:provider/provider.dart';
 
@@ -62,11 +64,36 @@ class Body extends StatelessWidget {
                     Provider.of<QuestionController>(context).pageController,
                 children: [
                   QuestionCard(
-                      'Mesurez votre température'), //(_questionController),
+                    question: 'Mesurez votre température',
+                    widget: QuestOptions(),
+                  ), //(_questionController),
                   QuestionCard(
-                      'Mesurerez Votre fréquence cardiaque'), //(_questionController),
+                    question: 'Mesurerez votre fréquence cardiaque',
+                    widget: QuestTextField(),
+                  ),
                   QuestionCard(
-                      'Mesurerez Votre respiratoire'), //(_questionController),
+                    question: 'Mesurerez votre fréquence respiratoire',
+                    widget: QuestTextField(),
+                  ),
+
+                  QuestionCard(
+                    question: 'Décrivez votre gêne respiratoire (dypsnée).',
+                    widget: QuestTextField(),
+                  ),
+                  QuestionCard(
+                    question: 'Comment évaluez-vous votre toux?',
+                    widget: QuestTextField(),
+                  ),
+                  QuestionCard(
+                    question: // "Un frisson est une sensation de froid accompagnéede tremblements
+                        'Avez-vous des frissons?',
+                    widget: QuestTextField(),
+                  ),
+                  QuestionCard(
+                    question:
+                        'Depuis que vous avez rempli le dernier questionnaire, avez vous fait une malaise?',
+                    widget: QuestTextField(),
+                  ),
                 ],
               ),
               // child: PageView.builder(

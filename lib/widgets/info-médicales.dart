@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InfoMedicales extends StatelessWidget {
   const InfoMedicales({Key? key}) : super(key: key);
@@ -17,9 +18,9 @@ class InfoMedicales extends StatelessWidget {
         alignment: Alignment(0, 0),
         child: Text(
           'Informations Médicales',
-          // style: FlutterFlowTheme.bodyText1.override(
-          //   fontFamily: 'Poppins',
-          // ),
+          style: GoogleFonts.lato(
+            fontSize: 24,
+          ),
         ),
       ),
     );

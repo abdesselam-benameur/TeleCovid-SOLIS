@@ -8,12 +8,13 @@ import 'package:tele_covid_solis/widgets/quest-button.dart';
 
 class QuestionCard extends StatelessWidget {
   final String question;
-  const QuestionCard(this.question);
+  final Widget widget;
+  const QuestionCard({required this.question, required this.widget});
   // final QuestionController questionController;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 30),
+      margin: EdgeInsets.fromLTRB(20, 15, 20, 30),
       // padding: EdgeInsets.all(20),
       // width: 100,
       // height: MediaQuery.of(context).size.height * 0.7,
@@ -24,7 +25,7 @@ class QuestionCard extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.fromLTRB(20, 20, 20, 25),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          // mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -54,66 +55,22 @@ class QuestionCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                color: Color(0xFFEEEEEE),
+            Flexible(child: widget),
+            Flexible(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  QuestionnaireButton(
+                      'Précédent',
+                      Provider.of<QuestionController>(context, listen: false)
+                          .decrementQnNum),
+                  QuestionnaireButton(
+                      'Suivant',
+                      Provider.of<QuestionController>(context, listen: false)
+                          .incrementQnNum),
+                ],
               ),
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                // inputFormatters: [
-                //   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                // ],
-                // controller: textController,
-                // obscureText: false,
-                decoration: InputDecoration(
-                  fillColor: Color(0xFFE2E0EE),
-                  hintText: 'Votre réponse',
-
-                  // hintStyle: FlutterFlowTheme.subtitle1.override(
-                  //   fontFamily: 'Poppins',
-                  // ),
-                  // enabledBorder: UnderlineInputBorder(
-                  //   borderSide: BorderSide(
-                  //     color: Colors.black,
-                  //     width: 1,
-                  //   ),
-                  //   borderRadius: const BorderRadius.only(
-                  //     topLeft: Radius.circular(4.0),
-                  //     topRight: Radius.circular(4.0),
-                  //   ),
-                  // ),
-                  // focusedBorder: UnderlineInputBorder(
-                  //   borderSide: BorderSide(
-                  //     color: Colors.green,
-                  //     width: 1,
-                  //   ),
-                  //   borderRadius: const BorderRadius.only(
-                  //     topLeft: Radius.circular(4.0),
-                  //     topRight: Radius.circular(4.0),
-                  //   ),
-                  // ),
-                ),
-                // style: FlutterFlowTheme.subtitle1.override(
-                //   fontFamily: 'Poppins',
-                // ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                QuestionnaireButton(
-                    'Précédent',
-                    Provider.of<QuestionController>(context, listen: false)
-                        .decrementQnNum),
-                QuestionnaireButton(
-                    'Suivant',
-                    Provider.of<QuestionController>(context, listen: false)
-                        .incrementQnNum),
-              ],
             )
           ],
         ),
@@ -121,3 +78,4 @@ class QuestionCard extends StatelessWidget {
     );
   }
 }
+//QuestTextField(),
