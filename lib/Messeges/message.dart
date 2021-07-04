@@ -35,23 +35,24 @@ class _ChatPageState extends State<ChatPage> {
             messageContent: _textMessage,
             messageType: "Sender",
             time: TimeOfDay.now().toString()));
-        //_textMessage = "";
-        newMessage = false;
+        _text.text = "";
+        // newMessage = false;
       }
     });
-    callback() {
-      _text.addListener(() {
-        if (_text.text.isNotEmpty && !newMessage) {
-          newMessage = true;
-          _textMessage = _text.text;
-          _text.clear();
-          scrollController.animateTo(
-            scrollController.position.maxScrollExtent,
-            curve: Curves.easeOut,
-            duration: const Duration(milliseconds: 300),
-          );
-        }
-      });
+    callback(String value) {
+      if (_text.text.isNotEmpty) {
+        newMessage = true;
+        _textMessage = value;
+        _text.clear();
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          curve: Curves.easeOut,
+          duration: const Duration(milliseconds: 300),
+        );
+      } else {
+        newMessage = false;
+        _text.text = '';
+      }
     }
 
     return Scaffold(
@@ -165,7 +166,7 @@ class _ChatPageState extends State<ChatPage> {
                     Expanded(
                       child: TextField(
                           controller: _text,
-                          //onSubmitted: (value) => callback(),
+                          onSubmitted: (value) => callback(value),
                           decoration: InputDecoration(
                               hintText: "Écrire un message ...",
                               hintStyle: TextStyle(color: Colors.black54),
@@ -175,7 +176,7 @@ class _ChatPageState extends State<ChatPage> {
                       width: 15,
                     ),
                     GestureDetector(
-                      onTap: callback,
+                      onTap: () {},
                       child: FloatingActionButton(
                         onPressed: () {},
                         child: Icon(
