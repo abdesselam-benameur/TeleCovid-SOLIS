@@ -13,11 +13,9 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // QuestionController _questionController = Get.put(QuestionController());
-    QuestionController _questionController = QuestionController();
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+        padding: EdgeInsets.fromLTRB(25, 0, 25, 30),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -39,21 +37,6 @@ class Body extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Consumer<QuestionController>(
-                  //   builder: (context, questionController, child) {
-                  //     return Text(
-                  //       "Question ${context.watch<QuestionController>().index + 1}",
-                  //       style: GoogleFonts.lato(
-                  //         textStyle: const TextStyle(
-                  //           //FlutterFlowTheme.title1.override(
-                  //           fontFamily: 'Poppins',
-                  //           color: Colors.white,
-                  //           fontSize: 30,
-                  //         ),
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
                 ],
               ),
             ),
@@ -65,7 +48,7 @@ class Body extends StatelessWidget {
                 children: [
                   QuestionCard(
                     question: 'Mesurez votre température',
-                    widget: QuestOptions(),
+                    widget: QuestTextField(),
                   ), //(_questionController),
                   QuestionCard(
                     question: 'Mesurerez votre fréquence cardiaque',
@@ -78,21 +61,33 @@ class Body extends StatelessWidget {
 
                   QuestionCard(
                     question: 'Décrivez votre gêne respiratoire (dypsnée).',
-                    widget: QuestTextField(),
+                    widget: QuestOptions(
+                      options: ["0", "1", "2", "3", "4"],
+                      hintText: '0: Resiration normale\n4: Parole difficle',
+                    ),
                   ),
                   QuestionCard(
                     question: 'Comment évaluez-vous votre toux?',
-                    widget: QuestTextField(),
+                    widget: QuestOptions(
+                      options: ["0", "1", "2", "3", "4"],
+                      hintText: '0: pas de toux\n4: toux invalidente',
+                    ),
                   ),
                   QuestionCard(
-                    question: // "Un frisson est une sensation de froid accompagnéede tremblements
-                        'Avez-vous des frissons?',
-                    widget: QuestTextField(),
+                    question: 'Avez-vous des frissons?',
+                    widget: QuestOptions(
+                      options: ["Oui", "Non"],
+                      hintText:
+                          "Un frisson est une sensation\nde froid accompagnéede tremblements",
+                    ),
                   ),
                   QuestionCard(
                     question:
                         'Depuis que vous avez rempli le dernier questionnaire, avez vous fait une malaise?',
-                    widget: QuestTextField(),
+                    widget: QuestOptions(
+                      options: ["Oui", "Non"],
+                      hintText: '',
+                    ),
                   ),
                 ],
               ),

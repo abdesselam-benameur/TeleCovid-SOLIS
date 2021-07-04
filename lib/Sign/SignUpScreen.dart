@@ -32,7 +32,9 @@ class _SignUPState extends State<SignUP> {
                   'Créer un nouveau compte',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
               ),
               Spacer(
@@ -89,7 +91,7 @@ class _SignUPState extends State<SignUP> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      'Don t Have an account',
+                      'Je suis un nouveau utilisateur',
                     ),
                     TextButton(
                         onPressed: () {
@@ -134,7 +136,6 @@ class _SignUPState extends State<SignUP> {
     }
   }
 }
-
 
 /*class SignUP extends StatelessWidget {
   @override

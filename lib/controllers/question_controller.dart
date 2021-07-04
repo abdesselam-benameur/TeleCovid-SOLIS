@@ -5,13 +5,23 @@ import 'package:tele_covid_solis/Model/Questions.dart';
 // import 'package:tele_covid_solis/screens/score/score_screen.dart';
 
 class QuestionController with ChangeNotifier {
-  //, DiagnosticableTreeMixin {
+  Map<int, String> answers = {};
   late int index = 0;
+  late String answerSelected = '';
   late PageController _pageController = PageController();
   PageController get pageController => this._pageController;
 
+  void selectAnswer(String answer) {
+    answerSelected = answer;
+    notifyListeners();
+  }
+
   void incrementQnNum() {
-    if (index < 6) this.index++;
+    if (index < 6) {
+      answers[index] = answerSelected;
+      answerSelected = '';
+      this.index++;
+    }
     print(index);
     _pageController.nextPage(
         duration: Duration(milliseconds: 250), curve: Curves.ease);
@@ -19,7 +29,11 @@ class QuestionController with ChangeNotifier {
   }
 
   void decrementQnNum() {
-    if (index > 0) this.index--;
+    if (index > 0) {
+      answers[index] = answerSelected;
+      answerSelected = '';
+      index--;
+    }
     print(index);
     _pageController.previousPage(
         duration: Duration(milliseconds: 250), curve: Curves.ease);

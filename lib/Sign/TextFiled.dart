@@ -37,7 +37,7 @@ const ktextinptDecoration2 = InputDecoration(
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(15)),
   ),
-  counterText: 'Forgot your password?',
+  counterText: 'Mot de passe oublié?',
   counterStyle: TextStyle(color: Colors.black),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: kPrimaryColor, width: 2.0),

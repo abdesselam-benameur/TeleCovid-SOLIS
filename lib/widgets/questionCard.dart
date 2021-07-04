@@ -14,7 +14,7 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(20, 15, 20, 30),
+      // margin: EdgeInsets.fromLTRB(20, 15, 20, 30),
       // padding: EdgeInsets.all(20),
       // width: 100,
       // height: MediaQuery.of(context).size.height * 0.7,
@@ -55,7 +55,7 @@ class QuestionCard extends StatelessWidget {
                 ],
               ),
             ),
-            Flexible(child: widget),
+            widget,
             Flexible(
               child: Row(
                 mainAxisSize: MainAxisSize.max,
