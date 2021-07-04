@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:tele_covid_solis/doctor/home.dart';
 
 import 'Constant.dart';
-import 'Home.dart';
+
 import 'TextFiled.dart';
 
 class SignUP extends StatefulWidget {

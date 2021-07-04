@@ -5,6 +5,7 @@ import 'package:googleapis/fcm/v1.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
 import 'package:tele_covid_solis/Messeges/message.dart';
 import 'package:tele_covid_solis/Sign/SignUpScreen.dart';
+import 'package:tele_covid_solis/Sign/screen_HOME.dart';
 import 'package:tele_covid_solis/doctor/home.dart';
 import 'package:tele_covid_solis/screens/questionnaire-page.dart';
 import 'package:tele_covid_solis/screens/screens.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignUP(), //patient ? BottomNavScreen() : Home(),
+      home: Screenhome(), //patient ? BottomNavScreen() : Home(),
       // home: QuestionnairePageWidget(),
     );
   }

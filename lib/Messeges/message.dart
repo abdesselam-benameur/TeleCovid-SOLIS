@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tele_covid_solis/Messeges/contactPage.dart';
-import 'package:tele_covid_solis/Model/messageModel.dart';
+
 import 'package:tele_covid_solis/Model/userModel.dart';
 
 class ChatPage extends StatefulWidget {
